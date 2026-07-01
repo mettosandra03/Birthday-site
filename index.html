@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Make a Birthday Card</title>
+
+<!-- These are the fonts we let people pick from. Pulling them from Google Fonts. -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Fredoka:wght@500;600;700&family=Caveat:wght@600;700&family=Playfair+Display:ital,wght@0,700;1,700&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <div class="page">
+
+    <!-- ============ LEFT SIDE: the controls the person plays with ============ -->
+    <aside class="controls">
+      <h1 class="controls-title">🎈 Build the card</h1>
+      <p class="controls-hint">Everything you change here shows up live on the right.</p>
+
+      <label class="field">
+        <span>Who is it for?</span>
+        <input type="text" id="recipientName" placeholder="e.g. Aisha" maxlength="40" />
+      </label>
+
+      <label class="field">
+        <span>Card font</span>
+        <select id="fontPicker">
+          <option value="font-pacifico" selected>Pacifico (swirly)</option>
+          <option value="font-fredoka">Fredoka (bold & round)</option>
+          <option value="font-caveat">Caveat (handwritten)</option>
+          <option value="font-playfair">Playfair (fancy)</option>
+        </select>
+      </label>
+
+      <label class="field">
+        <span>Background style</span>
+        <div class="swatches" id="bgSwatches">
+          <button type="button" class="swatch" data-bg="bg-sunset" style="background:linear-gradient(135deg,#FF8C69,#FF5D8F)"></button>
+          <button type="button" class="swatch" data-bg="bg-teal" style="background:linear-gradient(135deg,#2EC4B6,#1B9AAA)"></button>
+          <button type="button" class="swatch" data-bg="bg-gold" style="background:linear-gradient(135deg,#FFC145,#FF8C69)"></button>
+          <button type="button" class="swatch" data-bg="bg-plum" style="background:linear-gradient(135deg,#2B1B34,#5D3A7A)"></button>
+        </div>
+      </label>
+
+      <label class="field">
+        <span>Or pick your own background color</span>
+        <input type="color" id="customColor" value="#ff5d8f" />
+      </label>
+
+      <label class="field">
+        <span>Add photos for the slideshow</span>
+        <input type="file" id="photoInput" accept="image/*" multiple />
+        <small>Pick 2 or more so it can slide between them.</small>
+      </label>
+
+      <label class="field">
+        <span>Write your birthday message</span>
+        <textarea id="messageInput" rows="4" maxlength="300" placeholder="Wishing you the happiest of birthdays...">Wishing you the happiest of birthdays! Hope your day is full of cake, laughter, and everything you love. 🎂</textarea>
+      </label>
+
+      <button id="sendBtn" class="primary-btn">Send the card 🎉</button>
+      <p class="controls-hint small">This saves your message and takes you to the candle-blowing page.</p>
+    </aside>
+
+    <!-- ============ RIGHT SIDE: the live card preview ============ -->
+    <main class="stage">
+      <div id="card" class="card font-pacifico bg-sunset">
+        <div class="card-shine"></div>
+        <h2 class="card-sign">Happy Birthday<span class="to-name" id="cardName"></span></h2>
+
+        <div class="slideshow" id="slideshow">
+          <div class="slide-empty" id="slideEmpty">Add photos on the left<br />and they'll slide right here ✨</div>
+        </div>
+
+        <p class="card-message" id="cardMessage">Wishing you the happiest of birthdays! Hope your day is full of cake, laughter, and everything you love. 🎂</p>
+      </div>
+    </main>
+
+  </div>
+
+<script src="script.js"></script>
+</body>
+</html>

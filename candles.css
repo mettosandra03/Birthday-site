@@ -1,0 +1,122 @@
+.candle-body {
+  background: radial-gradient(circle at top, #3a2450, var(--plum));
+  min-height: 100vh;
+  color: var(--cream);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  position: relative;
+  overflow: hidden;
+}
+
+#confettiCanvas {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 5;
+}
+
+.candle-page {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  max-width: 520px;
+}
+
+.candle-heading {
+  font-family: 'Fredoka', sans-serif;
+  font-size: 2.2rem;
+  margin-bottom: 6px;
+}
+
+.candle-sub {
+  opacity: 0.8;
+  margin-bottom: 24px;
+}
+
+.cake-wrap {
+  max-width: 380px;
+  margin: 0 auto;
+}
+
+/* flame flicker animation */
+.flame {
+  transform-origin: center bottom;
+  animation: flicker 0.4s ease-in-out infinite alternate;
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+@keyframes flicker {
+  from { transform: scaleY(1) rotate(-2deg); }
+  to   { transform: scaleY(1.08) rotate(2deg); }
+}
+
+.flame.out {
+  opacity: 0;
+  transform: scaleY(0.2);
+  animation: none;
+}
+
+.smoke {
+  opacity: 0;
+  transition: opacity 0.4s ease 0.3s, transform 2s ease;
+}
+
+.smoke.show {
+  opacity: 0.5;
+  transform: translateY(-30px);
+}
+
+.breath-meter-wrap {
+  margin: 24px auto 20px;
+  max-width: 320px;
+}
+
+.breath-label {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  opacity: 0.7;
+  margin-bottom: 6px;
+}
+
+.breath-meter {
+  width: 100%;
+  height: 14px;
+  border-radius: 999px;
+  background: rgba(255,255,255,0.15);
+  overflow: hidden;
+}
+
+.breath-fill {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, var(--teal), var(--gold));
+  transition: width 0.08s linear;
+}
+
+.after-message {
+  display: none;
+  margin-top: 30px;
+  animation: pop-in 0.5s ease;
+}
+
+.after-message.show { display: block; }
+
+.after-message h2 {
+  font-family: 'Fredoka', sans-serif;
+  font-size: 1.8rem;
+  margin-bottom: 10px;
+}
+
+.after-message p {
+  line-height: 1.6;
+  opacity: 0.9;
+  white-space: pre-wrap;
+}
+
+@keyframes pop-in {
+  from { opacity: 0; transform: scale(0.9) translateY(10px); }
+  to   { opacity: 1; transform: scale(1) translateY(0); }
+}
